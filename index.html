@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe Coding Position Portfolio - T564A</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #fafafa;
+            background-image:
+                linear-gradient(#e8e8e8 1px, transparent 1px),
+                linear-gradient(90deg, #e8e8e8 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #FFE66D 0%, #FFB84D 100%);
+            color: #5a4a3a;
+            padding: 80px 0;
+            text-align: center;
+            border-bottom: 4px solid #FFA500;
+        }
+
+        header h1 {
+            font-family: 'Fira Code', monospace;
+            font-size: 64px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            position: relative;
+            text-shadow:
+                -2px -2px 0 #FF0000,
+                2px 2px 0 #00FF00,
+                -2px 2px 0 #0000FF;
+            animation: rgbGlitch 3s infinite;
+        }
+
+        @keyframes rgbGlitch {
+            0%, 90%, 100% {
+                text-shadow:
+                    -2px -2px 0 rgba(255, 0, 0, 0.8),
+                    2px 2px 0 rgba(0, 255, 0, 0.8),
+                    -2px 2px 0 rgba(0, 0, 255, 0.8);
+            }
+            92% {
+                text-shadow:
+                    3px 0 0 rgba(255, 0, 0, 0.8),
+                    -3px 0 0 rgba(0, 255, 0, 0.8),
+                    0 3px 0 rgba(0, 0, 255, 0.8);
+            }
+            94% {
+                text-shadow:
+                    -3px 0 0 rgba(255, 0, 0, 0.8),
+                    3px 0 0 rgba(0, 255, 0, 0.8),
+                    0 -3px 0 rgba(0, 0, 255, 0.8);
+            }
+        }
+
+        header p {
+            font-family: 'Fira Code', monospace;
+            font-size: 16px;
+            opacity: 0.8;
+            font-style: normal;
+            letter-spacing: 3px;
+            font-weight: 400;
+        }
+
+        /* Navigation */
+        nav {
+            background: #FFF9E6;
+            box-shadow: 0 2px 10px rgba(255, 165, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid #FFE66D;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+
+        nav li {
+            margin: 0;
+        }
+
+        nav a {
+            display: block;
+            padding: 20px 30px;
+            color: #D97F3C;
+            text-decoration: none;
+            font-family: 'Fira Code', monospace;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+            position: relative;
+            text-shadow:
+                -1px -1px 0 #FF0000,
+                1px 1px 0 #00FF00,
+                -1px 1px 0 #0000FF;
+            animation: rgbGlitch 3s infinite;
+        }
+
+        nav a:hover {
+            background: #FFE66D;
+            border-bottom-color: #FFB84D;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+            min-height: 60vh;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        section:nth-child(even) {
+            background: rgba(255, 249, 230, 0.5);
+        }
+
+        .section-title {
+            font-family: 'Fira Code', monospace;
+            font-size: 42px;
+            margin-bottom: 40px;
+            color: #D97F3C;
+            text-align: center;
+            font-weight: 700;
+            text-transform: uppercase;
+            position: relative;
+            text-shadow:
+                -2px -2px 0 #FF0000,
+                2px 2px 0 #00FF00,
+                -2px 2px 0 #0000FF;
+            animation: rgbGlitch 3s infinite;
+        }
+
+        .section-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .text-block {
+            margin-bottom: 40px;
+        }
+
+        .text-block p {
+            margin-bottom: 20px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .text-block em {
+            font-style: italic;
+            color: #D97F3C;
+        }
+
+        .project-showcase {
+            margin-top: 40px;
+        }
+
+        .project-image {
+            margin-bottom: 15px;
+        }
+
+        .image-caption {
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+        }
+
+        .subsection {
+            margin-top: 50px;
+            padding-top: 40px;
+            border-top: 2px solid #FFE66D;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .subsection.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .subsection-title {
+            font-size: 24px;
+            color: #D97F3C;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+
+        .citation {
+            background: #FFF9E6;
+            padding: 25px;
+            border-left: 4px solid #FFB84D;
+            margin: 30px 0;
+            font-size: 16px;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .project-item {
+            margin-bottom: 60px;
+        }
+
+        .project-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .intro-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .intro-text {
+            font-size: 18px;
+            line-height: 2;
+        }
+
+        .intro-graphic {
+            background: #FFF9E6;
+            border-radius: 20px;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            box-shadow: 0 2px 20px rgba(255, 182, 77, 0.2);
+            border: 2px solid #FFE66D;
+        }
+
+        .coffee-illustration {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle at 30% 30%, #FFE66D, #FFB84D);
+            border-radius: 50%;
+            position: relative;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(255, 165, 0, 0.3);
+        }
+
+        .coffee-illustration::before {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            top: 20px;
+            left: 20px;
+        }
+
+        .reflection-text {
+            font-size: 18px;
+            color: #8b7355;
+            text-align: center;
+            font-style: italic;
+            font-family: 'Georgia', serif;
+            font-weight: 300;
+        }
+
+        /* Placeholder sections */
+        .placeholder {
+            text-align: center;
+            padding: 100px 20px;
+            color: #999;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #FFB84D 0%, #FFA500 100%);
+            color: #5a4a3a;
+            text-align: center;
+            padding: 40px 0;
+            border-top: 4px solid #FFE66D;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 32px;
+            }
+
+            .intro-section {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                padding: 15px 20px;
+                font-size: 14px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>VIBE CODING POSITION PORTFOLIO</h1>
+            <p>-T564A-</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#position">My Position</a></li>
+            <li><a href="#making">Evidence from Making</a></li>
+            <li><a href="#readings">Evidence from Readings</a></li>
+        </ul>
+    </nav>
+
+    <!-- Section 1: My Position -->
+    <section id="position">
+        <div class="container">
+            <h2 class="section-title">My Position on AI as a Creative Partner</h2>
+            <div class="section-content">
+                <div class="text-block">
+                    <p>
+                        I remain optimistic about using AI as a creative partner. Looking back, I often felt discouraged from pursuing more detailed or interesting text-analysis projects simply because I lacked the programming skills to execute them. I had good ideas, but many were postponed or eventually abandoned. Realizing that GenAI can support me with web scraping, text annotation, text analysis, data visualization, and even light user-interaction tasks has been incredibly motivating. As a linguist passionate about quantitative analysis, I feel genuinely empowered knowing that GenAI can help me bring most of my ideas to life.
+                    </p>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Speed, Efficiency, and Augmentation</h3>
+                    <div class="text-block">
+                        <p>
+                            What actually still surprises me is the speed of the code generated by Claude. It would take sometimes less than a minute to generate a code of a complex platform full of clickable buttons leading the user to other different pages within the platform. (I used the knowledge gained during Vibe Coding to make a chat where people in my PCE course could interact with each other within the <a href="https://lucianadmacedo.github.io/english-teachers-community/" target="_blank" style="color: #D97F3C; text-decoration: underline;">platform</a>). So this makes me believe that, if we can save so much time by not having to code from scratch and/or trying to fix bugs, we can spend more time during other parts of the process, for example, testing and refining your ideas, until you're satisfied by the results. We can be very picky. We can be very demanding and strict with the results we want, because the progress of our products is just a prompt away.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Evidence from Making -->
+    <section id="making">
+        <div class="container">
+            <h2 class="section-title">Evidence from My Making</h2>
+            <div class="section-content">
+                <div class="text-block">
+                    <p style="text-align: center; font-style: italic; color: #D97F3C; margin-bottom: 50px;">
+                        Through creating these projects with AI as my partner, I discovered what's possible when technical barriers dissolve.
+                    </p>
+                </div>
+
+                <div class="project-item">
+                    <h3 class="subsection-title">Project 1: Treasure Hunt Game with Movement Detection</h3>
+                    <div class="text-block">
+                        <p>
+                            I started learning a bit of coding about ten years ago, mostly teaching myself. At first, I used it simply to make my text-analysis work more efficient. But I'm definitely a creature of habit, because many times I would do things the old way even after GenAI plugins and copilots became widely available. For instance, I'd still manually commit changes to GitHub, or use the command line to find files I needed, or search online for APIs for things like movement detection, until it finally clicked that I could just ask Claude for help.
+                        </p>
+                        <p>
+                            That's when I learned something surprising: for the movement-detection project I had in mind, I didn't need any special API or software at all. I was even willing to pay for that if needed be. But claude generated working code in under five minutes using a JavaScript library called MediaPipe to detect movement for the game I wanted to build for class. That was the moment I thought, <em>If this is possible, what else can we create just by vibe-coding?</em>
+                        </p>
+                        <p>
+                            <strong>What this taught me about my position:</strong> This project showed me that AI doesn't just help with coding, but it also removes the technical gatekeeping that once kept me from experimenting. I no longer had to search for the "right" API or worry about whether my skills were enough. The partnership let me focus on the creative vision (a movement‑based game) while Claude handled implementation details that would have taken me hours or days, and possibly more money, to figure out. The aesthetic could still be improved with more time and experimentation. But the most amazing part was being able to create something with AI and then actually see other people playing the game I had envisioned.
+                        </p>
+                    </div>
+                    <div class="project-showcase">
+                        <div class="project-image">
+                            <video autoplay loop muted playsinline style="width: 100%; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                                <source src="treasure-hunt.mp4" type="video/mp4">
+                                Your browser doesn't support video.
+                            </video>
+                        </div>
+                        <p class="image-caption">Treasure Hunt Game: Movement detection using MediaPipe</p>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <h3 class="subsection-title">Project 2: Reddit Sentiment Analysis</h3>
+                    <div class="text-block">
+                        <p>
+                            About ten years ago, I wanted to web‑scrape text data to uncover interesting linguistic insights from social media or other scrapeable websites. The technical challenges seemed insurmountable at the time. It would have required learning web‑scraping libraries, API authentication, natural language processing tools, data‑visualization frameworks, and then going through rounds of testing, iteration, and endless errors, debugging, and repetition. Each of these steps represented weeks or even months of learning before I could begin the actual research.
+                        </p>
+                        <p>
+                            With AI as a partner, I was finally able to scrape Reddit and run a sentiment analysis of posts, connecting the sentiments to entities present in the posts. The project that once felt impossible to me became achievable in a matter of hours. More importantly, I could iterate rapidly: when I wanted to adjust the analysis or visualize the data differently, it was just a prompt away.
+                        </p>
+                        <p>
+                            <strong>What this taught me about my position:</strong> The technical complexity that would have blocked me for months (or indefinitely) became manageable. With AI, as my creative partner, I can now pursue research questions based on my merit and interest, not on whether I have the programming skills to implement them. I obviously can't predict what other skills I might need for projects outside the ones I'm used to. But for now, I feel more optimistic about trying and see how far I can go with the curiosity I have and the knowledge I hope to keep on expanding.
+                        </p>
+                    </div>
+                    <div class="project-showcase">
+                        <div class="project-image">
+                            <video autoplay loop muted playsinline style="width: 100%; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                                <source src="reddit-sentiment-analysis.mp4" type="video/mp4">
+                                Your browser doesn't support video.
+                            </video>
+                        </div>
+                        <p class="image-caption">Reddit Sentiment Analysis: Web scraping and NLP analysis</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Evidence from Readings -->
+    <section id="readings">
+        <div class="container">
+            <h2 class="section-title">Evidence from the Readings</h2>
+            <div class="section-content">
+                <div class="text-block">
+                    <p style="text-align: center; font-style: italic; color: #D97F3C; margin-bottom: 50px;">
+                        From the quotes below, I reflect on today's computer and human capabilities together:
+                    </p>
+
+                    <p class="citation">
+                        "Computing machines will do the routinizable work that must be done to prepare the way for insights and decisions in technical and scientific thinking."<br>
+                        <span style="font-size: 14px; color: #666;">(Licklider, 1960, p. 4)</span>
+                    </p>
+
+                    <p class="citation">
+                        "The more we know about why our minds do foolish things, the better we can understand how we so often do things so well. In years to come, we'll discover new ways to help both machines and minds act more sensibly."<br>
+                        <span style="font-size: 14px; color: #666;">(Minsky, 1982, p. 15)</span>
+                    </p>
+
+                    <p>
+                        Although Licklider wrote this more than 70 years ago, his point still feels true today. Computers continue to take over the routine and mechanical parts of thinking. Fast forward to the 2020s: code that once took days to write can now be produced in seconds with GenAI by simply prompting the steps we need. When we're relieved of the necessary but low‑creativity tasks, we gain more time for ideation: reflection, imagination, experimentation, and higher‑level insight. In other words, we can think more deeply because the time‑consuming setup is no longer ours to do. Time limits are less of a problem too, not only because computers handle repetitive work well, but also because they have become extremely fast over the past few decades. Optimistically, modern computers free us from routine tasks and give us more room for meaningful, creative thinking. I believe that I can finally take on projects I've always wanted to do, such as the ones I did for this course, by using methods that otherwise would be too challenging to me without AI, e.g. web scraping or more accurate automated text annotation and retrieval.
+                    </p>
+
+                    <p>
+                        With all these factors supporting greater productivity and discovery, I sometimes wonder whether science will advance faster than ever. For example, I know many talented linguists who still work manually: corpus compilation, corpus annotation, and so on, who could now benefit greatly from GenAI. They could make many more discoveries if they had more time and if the repetitive parts of their work were automated. On a broader sense, if researchers can combine their expertise with the help of GenAI, I believe we could make real progress in the field. At the same time, technological progress does not depend only on the tools. It also depends on how people grow along with those tools. This is where Minsky's perspective becomes especially important.
+                    </p>
+
+                    <p>
+                        Minsky points out that humans often do not fully understand our own abilities. We make mistakes, overlook our strengths, and do not really know how our minds manage the impressive things they do. If I haven't yet reached the limits of my own abilities, I can't assume computers won't continue to improve too. I connect with Minsky's optimism: both humans and machines can grow by learning from mistakes, developing new strategies, and pursuing what we do best. Therefore, humans and machines both have unrealized potential, and both improve through learning. The beauty of all this is to acknowledge that I can now focus entirely on my skills and creativity as a researcher, by asking questions and digging for answers that otherwise wouldn't cross my mind because I knew I wouldn't have to time execute and focus on my research. With more AI capabilities now, I can expand my capabilities as a researcher.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h3 style="margin-bottom: 20px; font-size: 18px; font-weight: 600;">References</h3>
+            <p style="text-align: left; line-height: 1.8; margin-bottom: 10px;">
+                Licklider, J. C. R. (1960). Man-computer symbiosis. <em>IRE Transactions on Human Factors in Electronics, HFE.</em>
+            </p>
+            <p style="text-align: left; line-height: 1.8; margin-bottom: 20px;">
+                Minsky, M. L. (1982). Why people think computers can't. <em>AI Magazine.</em>
+            </p>
+            <p>&copy; 2025 Vibe Coding Portfolio - T564A</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Scroll animation for sections
+        const sections = document.querySelectorAll('section');
+
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        // Make the first section visible immediately
+        if (sections.length > 0) {
+            sections[0].classList.add('visible');
+        }
+
+        // Scroll animation for subsections
+        const subsections = document.querySelectorAll('.subsection');
+
+        const subsectionObserverOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const subsectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, subsectionObserverOptions);
+
+        subsections.forEach(subsection => {
+            subsectionObserver.observe(subsection);
+        });
+    </script>
+</body>
+</html>
